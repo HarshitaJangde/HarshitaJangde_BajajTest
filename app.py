@@ -3,10 +3,14 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Your details
-FULL_NAME = "harshita_jangde"
-DOB = "01012000"   # ddmmyyyy
-EMAIL = "harshita@example.com"
+FULL_NAME = "Harshita_Jangde"
+DOB = "22072003"  
+EMAIL = "harshitajangde@gmail.com"
 ROLL_NUMBER = "22BCE10107"
+
+@app.route("/")
+def home():
+    return "API is running. Use POST/bfhl"
 
 @app.route("/bfhl", methods=["POST"])
 def bfhl():

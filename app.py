@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from collections import OrderedDict
 
 app = Flask(__name__)
 
@@ -43,18 +44,18 @@ def bfhl():
             for i, c in enumerate(concat)
         )
 
-        response = {
-            "is_success": True,
-            "user_id": f"{FULL_NAME}_{DOB}",
-            "email": EMAIL,
-            "roll_number": ROLL_NUMBER,
-            "odd_numbers": odds,
-            "even_numbers": evens,
-            "alphabets": alphabets,
-            "special_characters": specials,
-            "sum": num_sum,
-            "concat_string": alt_caps
-        }
+        response = OrderedDict([
+            ("is_success", True),
+            ("user_id", f"{FULL_NAME}_{DOB}"),
+            ("email", EMAIL),
+            ("roll_number", ROLL_NUMBER),
+            ("odd_numbers", odds),
+            ("even_numbers", evens),
+            ("alphabets", alphabets),
+            ("special_characters", specials),
+            ("sum", num_sum),
+            ("concat_string", alt_caps)
+        ])
 
         return jsonify(response), 200
 
